@@ -61,7 +61,10 @@ with tab_photo:
     speed = st.radio("유통기한 읽기", ["정확하게 (v6+rotate, 평균 42초, 시험 7/8)", "빠르게 (fast+rotate, 평균 4초, 시험 5/8)"],
                      horizontal=True)
     exp_mode = "v6+rotate" if speed.startswith("정확") else "fast+rotate"
-    shot = st.file_uploader("음식 사진", type=["jpg", "jpeg", "png"]) or st.camera_input("또는 바로 찍기")
+    shot = st.file_uploader("음식 사진 (폰에서는 여기를 눌러 '카메라'로 찍기)", type=["jpg", "jpeg", "png"])
+    # 브라우저 카메라(st.camera_input)는 https나 localhost에서만 열린다. 폰에서 http://PC주소로 접속하면 막히므로 기본은 끈다.
+    if not shot and st.toggle("브라우저 카메라 쓰기 (PC에서 localhost로 열었을 때만)"):
+        shot = st.camera_input("바로 찍기")
     if shot:
         if st.session_state.get("shot_id") != shot.file_id:  # 새 사진이면 시간 재기 시작
             st.session_state.update(shot_id=shot.file_id, t0=time.perf_counter(), result=None)

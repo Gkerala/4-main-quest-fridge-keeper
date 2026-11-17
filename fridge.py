@@ -94,6 +94,17 @@ EXPIRY_MODES = ["base", "strict", "rotate", "orient", "orient+rotate", "fast", "
 EXPIRY_DEFAULT = "v6+rotate"  # 시험 사진 판정: 7/8, 지어낸 날짜 0 (105장), 평균 42초
 
 
+MAX_SIDE = 2000  # 검증한 사진 크기. 폰 원본(4000x3000)을 그대로 OCR에 넣으면 메모리가 64GB까지 치솟았다.
+
+
+def _load(path):
+    """사진을 열어 폰의 회전 정보(EXIF)를 반영하고, 긴 변을 MAX_SIDE 이하로 줄인다."""
+    from PIL import ImageOps
+    img = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+    img.thumbnail((MAX_SIDE, MAX_SIDE))
+    return img
+
+
 def _best_box(result):
     """가장 큰 박스 하나(사진 한 장 = 품목 한 개 전제). 반환: (클래스 이름, conf, xyxy) 또는 None."""
     boxes = result.boxes
@@ -158,7 +169,7 @@ def recognize(path, method=None, conf=0.10, sig_threshold=0.01, ref_threshold=0.
     method = method or best_method()
     """반환: dict(name, score, box, method, sec). name이 None이면 '모름'(수동 입력으로 넘긴다)."""
     t0 = time.perf_counter()
-    img = Image.open(path).convert("RGB")
+    img = _load(path)
     name, score, box = None, 0.0, None
     if method == "yolo":
         hit = _best_box(_yolo().predict(img, conf=conf, verbose=False)[0])
@@ -200,7 +211,7 @@ def read_expiry(path, mode=None):
     import numpy as np
     mode = mode or EXPIRY_DEFAULT
     t0 = time.perf_counter()
-    img = Image.open(path).convert("RGB")
+    img = _load(path)
     angles = [0, 180, 90, 270] if "rotate" in mode else [0]
     all_lines, d, ev, used = [], None, "", 0
     for a in angles:

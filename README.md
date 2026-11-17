@@ -16,7 +16,7 @@ uv pip install --python .venv\Scripts\python.exe -r requirements.txt
 python expiry.py                            # 날짜 규칙 단독 시험
 ```
 
-처음 실행할 때 모델을 내려받는다: `models/yolo26n.pt`, `models/yolov8s-worldv2.pt`(ultralytics), `google/siglip2-base-patch16-224`(Hugging Face), PP-OCRv5(PaddleOCR).
+처음 실행할 때 모델을 내려받는다: `models/yolo26n.pt`, `models/yolov8s-worldv2.pt`(ultralytics), `google/siglip2-base-patch16-224`(Hugging Face), PaddleOCR 모델(PP-OCRv5 server/mobile 글자 위치, PP-OCRv6 medium·한국어 v5 mobile 글자 읽기).
 
 ## 파일
 

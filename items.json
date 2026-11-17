@@ -1,12 +1,12 @@
 {
-  "_설명": "관리할 품목 목록. name=앱에 보일 이름, en=YOLO-World에 줄 영어 이름, ko=SigLIP 2에 줄 한국어 설명, dated=포장에 날짜가 찍혀 있는지, default_days=날짜가 없을 때 기본 보관 일수(사용자가 정함, null이면 직접 입력).",
+  "_설명": "관리할 품목 목록. name=앱에 보일 이름, en=YOLO-World에 줄 영어 이름, ko=SigLIP 2에 줄 한국어 설명, dated=포장에 날짜가 찍혀 있는지, default_days=날짜가 없을 때 등록일부터의 기본 보관 일수(흔히 알려진 범위의 짧은 쪽, null이면 직접 입력), storage=그 일수의 보관 조건.",
   "items": [
     {"name": "우유", "en": "plastic milk bottle", "ko": "플라스틱 통에 든 우유", "dated": true, "default_days": null},
     {"name": "두유", "en": "soy milk carton", "ko": "종이팩 두유", "dated": true, "default_days": null},
-    {"name": "시금치", "en": "spinach", "ko": "시금치", "dated": false, "default_days": null},
+    {"name": "시금치", "en": "spinach", "ko": "시금치", "dated": false, "default_days": 3, "storage": "데친 것, 냉장 (흔히 2~3일)"},
     {"name": "닭가슴살", "en": "packaged chicken breast", "ko": "비닐 포장된 닭가슴살", "dated": true, "default_days": null},
-    {"name": "고구마", "en": "sweet potato", "ko": "고구마", "dated": false, "default_days": null},
+    {"name": "고구마", "en": "sweet potato", "ko": "고구마", "dated": false, "default_days": 3, "storage": "찐 것, 냉장 (흔히 3~5일)"},
     {"name": "홍삼", "en": "red ginseng ampoule box", "ko": "홍삼 앰플과 상자", "dated": true, "default_days": null},
-    {"name": "목살", "en": "raw pork meat", "ko": "랩에 싼 생 돼지고기 목살", "dated": false, "default_days": null}
+    {"name": "목살", "en": "raw pork meat", "ko": "랩에 싼 생 돼지고기 목살", "dated": false, "default_days": 90, "storage": "냉동 (흔히 3~6개월)"}
   ]
 }

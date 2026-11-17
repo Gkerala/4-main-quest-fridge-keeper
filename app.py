@@ -74,6 +74,9 @@ with tab_photo:
                    f"유통기한: {exp['date'] or '못 읽음'} ({exp['sec']}초) · 근거: {exp['evidence'] or '-'}")
         name = st.selectbox("품목", fridge.NAMES, index=fridge.NAMES.index(rec["name"]) if rec["name"] else 0)
         guess = exp["date"] or default_expiry(name)
+        if not exp["date"] and guess:
+            item = next(i for i in fridge.ITEMS if i["name"] == name)
+            st.caption(f"날짜가 안 보여 기본 보관일수 {item['default_days']}일로 넣었습니다 ({item.get('storage', '')}).")
         exp_date = st.date_input("유통기한", value=guess, key=f"d_{st.session_state['shot_id']}")
         if st.button("등록", type="primary", disabled=exp_date is None):
             add(name, exp_date, "photo", saved)

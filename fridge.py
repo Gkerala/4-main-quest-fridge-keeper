@@ -68,11 +68,23 @@ def _siglip():
 
 
 @lru_cache(None)
-def _ocr():
+def _ocr(orient=False, fast=False):
     from paddleocr import PaddleOCR
-    return PaddleOCR(lang="korean", use_doc_orientation_classify=False,
-                     use_doc_unwarping=False, use_textline_orientation=False,
+    det = {"text_detection_model_name": "PP-OCRv5_mobile_det"} if fast else {}  # 기본은 server_det(느림)
+    return PaddleOCR(lang="korean", use_doc_orientation_classify=False, **det,
+                     use_doc_unwarping=False, use_textline_orientation=orient,
                      enable_mkldnn=False)  # paddle 3.3 CPU의 oneDNN 경로 버그(ConvertPirAttribute...) 회피
+
+
+# 유통기한 읽기 방식 (비교용)
+#   base   : 처음 버전. 원래 방향만 읽고, 연도 없는 숫자도 날짜로 본다.
+#   strict : 날짜 규칙 개선(연도 없는 날짜는 '까지·소비기한' 옆일 때만, 말이 안 되는 연도 버림).
+#   rotate : strict + 못 찾으면 사진을 180°·90°·270° 돌려 다시 읽는다(세로·거꾸로 인쇄 대응).
+#   orient : strict + PaddleOCR의 글자 줄 방향 판별 켜기.
+#   orient+rotate : 둘 다.
+#   fast+rotate : rotate와 같되 글자 위치 찾기를 가벼운 모델(PP-OCRv5_mobile_det)로 바꿔 속도를 비교한다.
+EXPIRY_MODES = ["base", "strict", "rotate", "orient", "orient+rotate", "fast+rotate"]
+EXPIRY_DEFAULT = "fast+rotate"  # evaluate.py 결과: 8/9, 지어낸 날짜 0, 17초
 
 
 def _best_box(result):
@@ -107,20 +119,27 @@ def _embed(img):
 
 @lru_cache(None)
 def _ref_bank():
-    """기준 사진들을 벡터로 바꿔 둔다. 반환: [(품목, 벡터)]."""
-    bank = []
+    """기준 사진들을 벡터로 바꿔 둔다. 반환: [(품목, 벡터, 파일 이름)].
+    기준 사진 = 내가 찍어 정답을 단 사진(data/photos + labels.csv) + 추가 기준 사진(data/refs/<품목>/)."""
+    import csv
+    paths = []
+    lab = ROOT / "data" / "labels.csv"
+    if lab.exists():
+        for r in csv.DictReader(lab.open(encoding="utf-8")):
+            paths.append((r["name"], ROOT / "data" / "photos" / r["file"]))
     for n in NAMES:
         for p in sorted((REFS / n).glob("*")) if (REFS / n).exists() else []:
             if p.suffix.lower() in (".jpg", ".jpeg", ".png"):
-                bank.append((n, _embed(Image.open(p).convert("RGB"))))
-    return bank
+                paths.append((n, p))
+    return [(n, _embed(Image.open(p).convert("RGB")), p.name) for n, p in paths if n in NAMES and p.exists()]
 
 
-def _ref_scores(img):
-    """새 사진 벡터와 품목별 기준 사진 벡터의 코사인 유사도 최댓값."""
-    bank = _ref_bank()
+def _ref_scores(img, exclude=None):
+    """새 사진 벡터와 품목별 기준 사진 벡터의 코사인 유사도 최댓값.
+    exclude: 검증할 때 그 사진 자신은 기준에서 뺀다(leave-one-out, 답을 보고 푸는 것 방지)."""
+    bank = [(n, v) for n, v, f in _ref_bank() if f != exclude]
     if not bank:
-        raise RuntimeError("data/refs/<품목>/ 에 기준 사진이 없습니다")
+        raise RuntimeError("기준 사진이 없습니다")
     q = _embed(img)
     scores = {}
     for n, v in bank:
@@ -160,7 +179,7 @@ def recognize(path, method=None, conf=0.10, sig_threshold=0.01, ref_threshold=0.
             if hit:
                 box = hit[2]
                 crop = img.crop(tuple(int(v) for v in box))
-        scores = _ref_scores(crop)
+        scores = _ref_scores(crop, exclude=Path(path).name)
         best = max(scores, key=scores.get)
         name, score = (best, scores[best]) if scores[best] >= ref_threshold else (None, scores[best])
     else:
@@ -169,16 +188,26 @@ def recognize(path, method=None, conf=0.10, sig_threshold=0.01, ref_threshold=0.
             "sec": round(time.perf_counter() - t0, 2)}
 
 
-def read_expiry(path):
-    """반환: dict(date, evidence, lines, sec). date는 datetime.date 또는 None."""
-    t0 = time.perf_counter()
-    lines = []
+def read_expiry(path, mode=None):
+    """반환: dict(date, evidence, lines, angle, sec). date는 datetime.date 또는 None."""
     import numpy as np
-    arr = np.array(Image.open(path).convert("RGB"))[:, :, ::-1].copy()  # 한글 경로 대비: 파일 대신 BGR 배열로 넘긴다
-    for r in _ocr().predict(arr):
-        lines += list(zip(r["rec_texts"], [float(s) for s in r["rec_scores"]]))
-    d, ev = find_expiry(lines)
-    return {"date": d, "evidence": ev, "lines": [t for t, _ in lines], "sec": round(time.perf_counter() - t0, 2)}
+    mode = mode or EXPIRY_DEFAULT
+    t0 = time.perf_counter()
+    img = Image.open(path).convert("RGB")
+    angles = [0, 180, 90, 270] if "rotate" in mode else [0]
+    all_lines, d, ev, used = [], None, "", 0
+    for a in angles:
+        arr = np.array(img.rotate(a, expand=True))[:, :, ::-1].copy()  # 한글 경로 대비: 파일 대신 BGR 배열
+        lines = []
+        for r in _ocr("orient" in mode, "fast" in mode).predict(arr):
+            lines += list(zip(r["rec_texts"], [float(s) for s in r["rec_scores"]]))
+        all_lines += lines
+        d, ev = find_expiry(lines, strict=(mode != "base"))
+        used = a
+        if d:
+            break  # 찾으면 더 돌리지 않는다(시간 절약)
+    return {"date": d, "evidence": ev, "lines": [t for t, _ in all_lines], "angle": used,
+            "sec": round(time.perf_counter() - t0, 2)}
 
 
 if __name__ == "__main__":

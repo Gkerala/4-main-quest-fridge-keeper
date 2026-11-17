@@ -10,3 +10,4 @@ results/
 data/smoke/
 weights/
 *.pt
+*.log

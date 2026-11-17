@@ -8,7 +8,7 @@
   - 시험 사진이 있으면: 기준 = data/photos 전체, 시험 = data/test  (공정한 판정, 가장 좋은 방법을 여기서 고름)
   - 같은 날 사진끼리(leave-one-out): 기준 = 자기 자신을 뺀 data/photos  (같은 촬영 조건이라 낙관적인 참고값)
 유통기한: 읽기 방식(fridge.EXPIRY_MODES)마다, 날짜가 보이는 사진의 정답률과 날짜 없는 사진에서 지어낸 날짜 수.
-실행: .venv\\Scripts\\python evaluate.py [--skip-expiry | --expiry-only 방식,방식]  (--expiry-only: 지정한 유통기한 방식만 다시 재서 덮어씀)
+실행: .venv\\Scripts\\python evaluate.py [--skip-expiry | --expiry-only 방식,방식 [--test]]  (지정한 유통기한 방식만 다시 잼, --test면 시험 사진으로)
 """
 import csv
 import json
@@ -71,23 +71,25 @@ def save_csv(name, rows):
         w.writerows(rows)
 
 
-def expiry_only(modes):
-    """지정한 방식만 다시 재서 summary.json과 expiry.csv의 해당 방식 줄만 바꾼다."""
+def expiry_only(modes, on_test=False):
+    """지정한 방식만 다시 재서 summary.json과 expiry(_test).csv의 해당 방식 줄만 바꾼다.
+    on_test: 날짜 규칙을 고칠 때 보지 않은 시험 사진(data/test, expiry 열)으로 잰다(공정한 판정)."""
+    key, fname = ("유통기한 · 시험 사진(판정용)", "expiry_test.csv") if on_test else ("유통기한", "expiry.csv")
     summary = json.loads((OUT / "summary.json").read_text(encoding="utf-8"))
-    erows, esumm = expiry(load(None), modes)
-    summary.setdefault("유통기한", {}).update(esumm)
+    erows, esumm = expiry(load("test") if on_test else load(None), modes)
+    summary.setdefault(key, {}).update(esumm)
     old = []
-    if (OUT / "expiry.csv").exists():
-        old = [r for r in csv.DictReader((OUT / "expiry.csv").open(encoding="utf-8-sig")) if r["mode"] not in modes]
-    save_csv("expiry.csv", old + erows)
+    if (OUT / fname).exists():
+        old = [r for r in csv.DictReader((OUT / fname).open(encoding="utf-8-sig")) if r["mode"] not in modes]
+    save_csv(fname, old + erows)
     (OUT / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(json.dumps(summary["유통기한"], ensure_ascii=False, indent=1))
+    print(json.dumps(summary[key], ensure_ascii=False, indent=1))
 
 
 def main():
     OUT.mkdir(exist_ok=True)
     if "--expiry-only" in sys.argv:
-        return expiry_only(sys.argv[sys.argv.index("--expiry-only") + 1].split(","))
+        return expiry_only(sys.argv[sys.argv.index("--expiry-only") + 1].split(","), "--test" in sys.argv)
     photos, test = load(None), load("test")
     summary = {}
     rows, acc_loo, sec_loo = recog(photos, "같은날(LOO)")

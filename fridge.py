@@ -68,10 +68,13 @@ def _siglip():
 
 
 @lru_cache(None)
-def _ocr(orient=False, fast=False):
+def _ocr(orient=False, mobile_det=False, v6_rec=False):
+    """주의: 모델 이름을 하나라도 직접 주면 PaddleOCR이 lang="korean"을 무시하고 기본 인식 모델(PP-OCRv6_medium_rec)을 쓴다.
+    그래서 두 모델을 항상 이름으로 정한다."""
     from paddleocr import PaddleOCR
-    det = {"text_detection_model_name": "PP-OCRv5_mobile_det"} if fast else {}  # 기본은 server_det(느림)
-    return PaddleOCR(lang="korean", use_doc_orientation_classify=False, **det,
+    return PaddleOCR(text_detection_model_name="PP-OCRv5_mobile_det" if mobile_det else "PP-OCRv5_server_det",
+                     text_recognition_model_name="PP-OCRv6_medium_rec" if v6_rec else "korean_PP-OCRv5_mobile_rec",
+                     use_doc_orientation_classify=False,
                      use_doc_unwarping=False, use_textline_orientation=orient,
                      enable_mkldnn=False)  # paddle 3.3 CPU의 oneDNN 경로 버그(ConvertPirAttribute...) 회피
 
@@ -82,9 +85,13 @@ def _ocr(orient=False, fast=False):
 #   rotate : strict + 못 찾으면 사진을 180°·90°·270° 돌려 다시 읽는다(세로·거꾸로 인쇄 대응).
 #   orient : strict + PaddleOCR의 글자 줄 방향 판별 켜기.
 #   orient+rotate : 둘 다.
-#   fast+rotate : rotate와 같되 글자 위치 찾기를 가벼운 모델(PP-OCRv5_mobile_det)로 바꿔 속도를 비교한다.
-EXPIRY_MODES = ["base", "strict", "rotate", "orient", "orient+rotate", "fast+rotate"]
-EXPIRY_DEFAULT = "fast+rotate"  # evaluate.py 결과: 8/9, 지어낸 날짜 0, 17초
+#   (여기까지 글자 위치 = PP-OCRv5_server_det, 글자 읽기 = korean_PP-OCRv5_mobile_rec)
+#   fast : 글자 위치 PP-OCRv5_mobile_det + 글자 읽기 PP-OCRv6_medium_rec, 돌리지 않음.
+#   fast+rotate : fast + 돌려 읽기.
+#   mdet+rotate : 글자 위치만 mobile_det로 (읽기는 한국어 모델) - 무엇이 효과였는지 가르기용
+#   v6+rotate   : 글자 읽기만 PP-OCRv6로 (위치는 server_det) - 같은 목적
+EXPIRY_MODES = ["base", "strict", "rotate", "orient", "orient+rotate", "fast", "fast+rotate", "mdet+rotate", "v6+rotate"]
+EXPIRY_DEFAULT = "v6+rotate"  # 시험 사진 판정: 7/8, 지어낸 날짜 0 (105장), 평균 42초
 
 
 def _best_box(result):
@@ -199,7 +206,7 @@ def read_expiry(path, mode=None):
     for a in angles:
         arr = np.array(img.rotate(a, expand=True))[:, :, ::-1].copy()  # 한글 경로 대비: 파일 대신 BGR 배열
         lines = []
-        for r in _ocr("orient" in mode, "fast" in mode).predict(arr):
+        for r in _ocr("orient" in mode, "fast" in mode or "mdet" in mode, "fast" in mode or "v6" in mode).predict(arr):
             lines += list(zip(r["rec_texts"], [float(s) for s in r["rec_scores"]]))
         all_lines += lines
         d, ev = find_expiry(lines, strict=(mode != "base"))

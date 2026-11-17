@@ -58,6 +58,9 @@ with tab_photo:
     best = fridge.best_method()
     method = st.selectbox("품목 인식 방법 (기본값 = 검증에서 가장 좋았던 방법)", fridge.METHODS,
                           index=fridge.METHODS.index(best))
+    speed = st.radio("유통기한 읽기", ["정확하게 (v6+rotate, 평균 42초, 시험 7/8)", "빠르게 (fast+rotate, 평균 4초, 시험 5/8)"],
+                     horizontal=True)
+    exp_mode = "v6+rotate" if speed.startswith("정확") else "fast+rotate"
     shot = st.file_uploader("음식 사진", type=["jpg", "jpeg", "png"]) or st.camera_input("또는 바로 찍기")
     if shot:
         if st.session_state.get("shot_id") != shot.file_id:  # 새 사진이면 시간 재기 시작
@@ -67,7 +70,7 @@ with tab_photo:
         if st.session_state["result"] is None:
             path.write_bytes(shot.getvalue())
             with st.spinner("인식 중..."):
-                st.session_state["result"] = (fridge.recognize(path, method), fridge.read_expiry(path), str(path))
+                st.session_state["result"] = (fridge.recognize(path, method), fridge.read_expiry(path, exp_mode), str(path))
         rec, exp, saved = st.session_state["result"]
         st.image(shot, width=320)
         st.caption(f"인식: {rec['name'] or '모름'} (점수 {rec['score']}, {rec['sec']}초) · "
@@ -80,7 +83,7 @@ with tab_photo:
         exp_date = st.date_input("유통기한", value=guess, key=f"d_{st.session_state['shot_id']}")
         if st.button("등록", type="primary", disabled=exp_date is None):
             add(name, exp_date, "photo", saved)
-            log("photo", time.perf_counter() - st.session_state["t0"], rec["name"], exp["date"], name, exp_date)
+            log(f"photo:{exp_mode}", time.perf_counter() - st.session_state["t0"], rec["name"], guess, name, exp_date)  # guess = 읽은 날짜 또는 기본 보관일수
             st.success(f"{name} ({exp_date}) 등록")
             st.session_state.update(shot_id=None, result=None)
 

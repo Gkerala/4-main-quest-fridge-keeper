@@ -5,6 +5,9 @@
   world   : YOLO-World. 품목 이름을 글로 주면 그 물체를 찾는다(open-vocabulary 탐지).
   siglip  : SigLIP 2. 사진(또는 탐지한 영역)이 어느 품목 설명과 맞는지 점수를 매긴다.
   world+siglip : YOLO-World로 위치를 찾고, 잘라 낸 영역의 이름은 SigLIP 2가 정한다.
+  ref     : 내가 찍은 기준 사진들을 SigLIP 2 벡터로 저장해 두고, 새 사진과 가장 가까운 품목을 고른다(벡터 검색).
+  world+ref : YOLO-World로 잘라 낸 영역을 기준 사진 벡터와 비교한다.
+evaluate.py가 방법별 정답률을 재서 가장 좋은 방법을 results/best_method.txt에 적고, 앱은 그것을 기본값으로 쓴다.
 유통기한: PaddleOCR(한국어)로 글자를 읽고 expiry.find_expiry 규칙으로 날짜를 고른다.
 """
 import json
@@ -32,7 +35,15 @@ from expiry import find_expiry  # noqa: E402
 ITEMS = json.loads((ROOT / "items.json").read_text(encoding="utf-8"))["items"]
 NAMES = [i["name"] for i in ITEMS]
 # COCO 클래스 중 품목과 이어 볼 수 있는 것만 (나머지 품목은 COCO에 없다)
-COCO_MAP = {"bottle": "우유", "cup": "우유", "broccoli": "시금치"}
+COCO_MAP = {"bottle": "우유", "broccoli": "시금치"}
+METHODS = ["yolo", "world", "siglip", "world+siglip", "ref", "world+ref"]
+REFS = ROOT / "data" / "refs"  # 기준 사진: data/refs/<품목 이름>/*.jpg (검증 사진과 다른 사진)
+
+
+def best_method():
+    """evaluate.py가 고른 가장 좋은 방법. 아직 검증 전이면 world+siglip."""
+    f = ROOT / "results" / "best_method.txt"
+    return f.read_text(encoding="utf-8").strip() if f.exists() else "world+siglip"
 
 
 @lru_cache(None)
@@ -84,7 +95,41 @@ def _siglip_scores(img):
     return {n: float(p) for n, p in zip(NAMES, probs)}
 
 
-def recognize(path, method="world+siglip", conf=0.10, sig_threshold=0.01):
+def _embed(img):
+    """SigLIP 2 이미지 벡터(길이 1로 정규화)."""
+    import torch
+    model, proc = _siglip()
+    with torch.no_grad():
+        v = model.get_image_features(**proc(images=img, return_tensors="pt"))
+    v = v.pooler_output if hasattr(v, "pooler_output") else v
+    return torch.nn.functional.normalize(v, dim=-1)[0]
+
+
+@lru_cache(None)
+def _ref_bank():
+    """기준 사진들을 벡터로 바꿔 둔다. 반환: [(품목, 벡터)]."""
+    bank = []
+    for n in NAMES:
+        for p in sorted((REFS / n).glob("*")) if (REFS / n).exists() else []:
+            if p.suffix.lower() in (".jpg", ".jpeg", ".png"):
+                bank.append((n, _embed(Image.open(p).convert("RGB"))))
+    return bank
+
+
+def _ref_scores(img):
+    """새 사진 벡터와 품목별 기준 사진 벡터의 코사인 유사도 최댓값."""
+    bank = _ref_bank()
+    if not bank:
+        raise RuntimeError("data/refs/<품목>/ 에 기준 사진이 없습니다")
+    q = _embed(img)
+    scores = {}
+    for n, v in bank:
+        scores[n] = max(scores.get(n, -1.0), float(q @ v))
+    return scores
+
+
+def recognize(path, method=None, conf=0.10, sig_threshold=0.01, ref_threshold=0.0):
+    method = method or best_method()
     """반환: dict(name, score, box, method, sec). name이 None이면 '모름'(수동 입력으로 넘긴다)."""
     t0 = time.perf_counter()
     img = Image.open(path).convert("RGB")
@@ -108,6 +153,16 @@ def recognize(path, method="world+siglip", conf=0.10, sig_threshold=0.01):
         scores = _siglip_scores(crop)
         best = max(scores, key=scores.get)
         name, score = (best, scores[best]) if scores[best] >= sig_threshold else (None, scores[best])
+    elif method in ("ref", "world+ref"):
+        crop = img
+        if method == "world+ref":
+            hit = _best_box(_world().predict(img, conf=conf, verbose=False)[0])
+            if hit:
+                box = hit[2]
+                crop = img.crop(tuple(int(v) for v in box))
+        scores = _ref_scores(crop)
+        best = max(scores, key=scores.get)
+        name, score = (best, scores[best]) if scores[best] >= ref_threshold else (None, scores[best])
     else:
         raise ValueError(method)
     return {"name": name, "score": round(score, 4), "box": box, "method": method,
@@ -129,6 +184,6 @@ def read_expiry(path):
 if __name__ == "__main__":
     import sys
     p = sys.argv[1]
-    m = sys.argv[2] if len(sys.argv) > 2 else "world+siglip"
+    m = sys.argv[2] if len(sys.argv) > 2 else None
     print(recognize(p, m))
     print(read_expiry(p))

@@ -11,15 +11,13 @@ from pathlib import Path
 import fridge
 
 ROOT = Path(__file__).parent
-METHODS = ["yolo", "world", "siglip", "world+siglip"]
-
-
 def main():
     labels = list(csv.DictReader((ROOT / "data" / "labels.csv").open(encoding="utf-8")))
     out = ROOT / "results"
     out.mkdir(exist_ok=True)
-    rows, summary = [], {}
-    for m in METHODS:
+    rows, summary, acc = [], {}, {}
+    methods = [m for m in fridge.METHODS if "ref" not in m or fridge.REFS.exists()]
+    for m in methods:
         ok = 0
         for lb in labels:
             r = fridge.recognize(ROOT / "data" / "photos" / lb["file"], m)
@@ -27,7 +25,13 @@ def main():
             ok += hit
             rows.append({"file": lb["file"], "method": m, "truth": lb["name"], "pred": r["name"],
                          "score": r["score"], "ok": int(hit), "sec": r["sec"]})
-        summary[m] = f"{ok}/{len(labels)}"
+        summary[m] = f"{ok}/{len(labels)} ({ok / len(labels):.0%})"
+        acc[m] = ok / len(labels)
+    # 정답률이 같으면 빠른 쪽(평균 시간)을 고른다
+    sec = {m: sum(r["sec"] for r in rows if r["method"] == m) / len(labels) for m in acc}
+    best = max(acc, key=lambda m: (acc[m], -sec[m]))
+    (out / "best_method.txt").write_text(best, encoding="utf-8")
+    summary["best_method"] = best
     dated = [lb for lb in labels if lb["expiry"]]
     d_ok, d_rows = 0, []
     for lb in labels:

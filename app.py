@@ -55,7 +55,9 @@ st.title("내 냉장고 유통기한")
 tab_photo, tab_manual, tab_list = st.tabs(["사진으로 등록", "직접 등록", "목록"])
 
 with tab_photo:
-    method = st.selectbox("품목 인식 방법", ["world+siglip", "world", "siglip", "yolo"])
+    best = fridge.best_method()
+    method = st.selectbox("품목 인식 방법 (기본값 = 검증에서 가장 좋았던 방법)", fridge.METHODS,
+                          index=fridge.METHODS.index(best))
     shot = st.file_uploader("음식 사진", type=["jpg", "jpeg", "png"]) or st.camera_input("또는 바로 찍기")
     if shot:
         if st.session_state.get("shot_id") != shot.file_id:  # 새 사진이면 시간 재기 시작

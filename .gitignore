@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+models/*.pt
+fridge.db
+uploads/
+.env
+.home/
+logs/
+results/
+data/smoke/
+weights/
+*.pt

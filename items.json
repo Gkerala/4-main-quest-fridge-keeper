@@ -1,0 +1,8 @@
+{
+  "_설명": "관리할 품목 목록. name=앱에 보일 이름, en=YOLO-World에 줄 영어 이름, ko=SigLIP 2에 줄 한국어 설명, default_days=유통기한이 안 찍힌 품목의 기본 보관 일수(사용자가 정함, null이면 직접 입력).",
+  "items": [
+    {"name": "우유", "en": "milk carton", "ko": "우유 팩", "default_days": null},
+    {"name": "시금치", "en": "spinach", "ko": "시금치 묶음", "default_days": null},
+    {"name": "닭가슴살", "en": "packaged chicken breast", "ko": "포장된 닭가슴살", "default_days": null}
+  ]
+}

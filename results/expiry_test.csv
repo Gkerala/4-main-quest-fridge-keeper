@@ -1,0 +1,421 @@
+﻿mode,file,truth,pred,ok,angle,evidence,sec,ocr
+fast,soymilk_t01.jpg,2027-07-13,,0,0,,4.76,E通12 | Hanmi
+fast,soymilk_t02.jpg,2027-07-13,,0,0,,3.15, | HH | u1 | GUF | Packaging by | SIG | 验型 | ：PP |  | FG.T | 型乒异
+fast,soymilk_t03.jpg,2027-07-13,,0,0,,2.43,130 | C10:4G |  | 2022.07 |  | 17 | 卫星合
+fast,soymilk_t04.jpg,2027-07-13,,0,0,,1.4,.07.13D |  | E
+fast,soymilk_t05.jpg,2027-07-13,2027-07-13,1,0,2027.07.13D,2.15,2027.07.13D | IT | 750司 | 0 | :7 | 司
+fast,soymilk_t06.jpg,,,1,0,,3.35,德 | 用 |  | 器 | 语 | 0 |  | 品器 | JUHOF | 器 | tu | 1n
+fast,soymilk_t07.jpg,,,1,0,,1.5,大 | 限证品 | 2 | ·
+fast,soymilk_t08.jpg,,,1,0,,2.29,影 | 190mL | · | 吉 | 1 | %59
+fast,soymilk_t09.jpg,,,1,0,,1.53,783980 | 80612420 | se
+fast,soymilk_t10.jpg,,,1,0,,2.53,S | 783980 | rialotrlaia | 号 | 立局员 | I2
+fast,soymilk_t11.jpg,,,1,0,,0.89,6
+fast,soymilk_t12.jpg,,,1,0,,1.35,83980 | ET | 
+fast,soymilk_t13.jpg,,,1,0,,0.9,
+fast,soymilk_t14.jpg,,,1,0,,0.63,
+fast,soymilk_t15.jpg,,,1,0,,1.29,SIG | asi
+fast,hongsam_t01.jpg,,,1,0,,1.94,市密 | 0  | 正书上 | a | 
+fast,hongsam_t02.jpg,,,1,0,,0.67,
+fast,hongsam_t03.jpg,,,1,0,,0.66,
+fast,hongsam_t04.jpg,2026-11-25,,0,0,,1.12,中IieE | 证
+fast,hongsam_t05.jpg,,,1,0,,1.13,喜型 | Hin
+fast,hongsam_t06.jpg,,,1,0,,0.9,0
+fast,soymilk_t16.jpg,2027-07-13,2027-07-13,1,0,2027.07.13D,2.12, | 三人豆 | 灯 |  | 00:46 | 2027.07.13D
+fast,hongsam_t07.jpg,,,1,0,,0.89,Hle
+fast,hongsam_t08.jpg,2026-11-25,,0,0,,0.95,全a贝312n 25n
+fast,hongsam_t09.jpg,,,1,0,,0.65,
+fast,hongsam_t10.jpg,,,1,0,,0.97,T
+fast,hongsam_t11.jpg,,,1,0,,1.73,天印可叫音 | 6 | 叶可舌 |  | 店
+fast,hongsam_t12.jpg,,,1,0,,1.22,35 | 诊
+fast,hongsam_t13.jpg,,,1,0,,0.66,
+fast,hongsam_t14.jpg,,,1,0,,0.67,
+fast,hongsam_t15.jpg,,,1,0,,0.67,
+fast,porkneck_t01.jpg,,,1,0,,0.66,
+fast,porkneck_t02.jpg,,,1,0,,0.7,
+fast,porkneck_t03.jpg,,,1,0,,0.84,中
+fast,porkneck_t04.jpg,,,1,0,,1.11,K | 中
+fast,porkneck_t05.jpg,,,1,0,,0.68,
+fast,porkneck_t06.jpg,,,1,0,,0.68,
+fast,porkneck_t07.jpg,,,1,0,,0.7,
+fast,porkneck_t08.jpg,,,1,0,,0.85,e
+fast,porkneck_t09.jpg,,,1,0,,0.97,1nS
+fast,porkneck_t10.jpg,,,1,0,,0.68,
+fast,porkneck_t11.jpg,,,1,0,,0.79,4
+fast,porkneck_t12.jpg,,,1,0,,0.86,LIN
+fast,porkneck_t13.jpg,,,1,0,,0.71,
+fast,porkneck_t14.jpg,,,1,0,,0.67,
+fast,porkneck_t15.jpg,,,1,0,,0.89,彩
+fast,porkneck_t16.jpg,,,1,0,,0.67,
+fast,porkneck_t17.jpg,,,1,0,,0.67,
+fast,sweetpotato_t01.jpg,,,1,0,,0.66,
+fast,sweetpotato_t02.jpg,,,1,0,,0.66,
+fast,sweetpotato_t03.jpg,,,1,0,,0.64,
+fast,sweetpotato_t04.jpg,,,1,0,,0.64,
+fast,sweetpotato_t05.jpg,,,1,0,,1.11,N | 2
+fast,sweetpotato_t06.jpg,,,1,0,,0.7,
+fast,sweetpotato_t07.jpg,,,1,0,,0.7,
+fast,sweetpotato_t08.jpg,,,1,0,,0.64,
+fast,sweetpotato_t09.jpg,,,1,0,,0.66,
+fast,sweetpotato_t10.jpg,,,1,0,,0.91,
+fast,sweetpotato_t11.jpg,,,1,0,,0.7,
+fast,sweetpotato_t12.jpg,,,1,0,,0.71,
+fast,sweetpotato_t13.jpg,,,1,0,,0.91,2
+fast,sweetpotato_t14.jpg,,,1,0,,0.68,
+fast,sweetpotato_t15.jpg,,,1,0,,0.89,N
+fast,sweetpotato_t16.jpg,,,1,0,,0.89,
+fast,sweetpotato_t17.jpg,,,1,0,,0.85,
+fast,milk_t01.jpg,,,1,0,,1.69,O |  | 0G | a
+fast,milk_t02.jpg,,,1,0,,0.88,西
+fast,milk_t03.jpg,,,1,0,,0.82,图
+fast,milk_t04.jpg,,,1,0,,0.87,园
+fast,milk_t05.jpg,,,1,0,,1.11,R | 医
+fast,milk_t06.jpg,,,1,0,,1.08,A | 园
+fast,milk_t07.jpg,,,1,0,,1.26,R | 园
+fast,milk_t08.jpg,,,1,0,,0.8,医
+fast,milk_t09.jpg,,,1,0,,0.69,
+fast,milk_t10.jpg,,,1,0,,0.83,0
+fast,milk_t11.jpg,,,1,0,,3.58,"98,V90 | 智U口 | 100%(至今刀圣1品，42今卷1通A) | (( |  |  | N | "
+fast,milk_t12.jpg,,,1,0,,0.69,
+fast,milk_t13.jpg,,,1,0,,0.91,1
+fast,milk_t14.jpg,,,1,0,,0.64,
+fast,milk_t15.jpg,,,1,0,,1.15,1 | 2
+fast,milk_t16.jpg,,,1,0,,2.94, | 1A | V | 刘刘空全 | 163 | 本 | 全 | 1A52 |  1%1.8L(720kcal)
+fast,milk_t17.jpg,,,1,0,,2.81,9 | a | S | 0 | O | 2 | 1 | of | 
+fast,milk_t18.jpg,,,1,0,,0.91,2
+fast,milk_t19.jpg,,,1,0,,0.86,2
+fast,milk_t20.jpg,,,1,0,,1.17,m | D!
+fast,chicken_t02.jpg,,,1,0,,1.4,A | 新 | 
+fast,chicken_t03.jpg,,,1,0,,1.14,ses | O
+fast,chicken_t04.jpg,,,1,0,,1.39,KC | A | N
+fast,chicken_t05.jpg,,,1,0,,1.45, | 暑收强房 | ( 
+fast,chicken_t06.jpg,,,1,0,,1.38,100g(25 ca) |  | sauce
+fast,chicken_t07.jpg,,,1,0,,0.66,
+fast,chicken_t08.jpg,,,1,0,,0.9,sauce
+fast,chicken_t09.jpg,,,1,0,,1.6,
+fast,chicken_t10.jpg,,,1,0,,1.14,治旧灵关品私号 | 同
+fast,chicken_t11.jpg,,,1,0,,1.51, | O | 2188
+fast,chicken_t12.jpg,,,1,0,,0.69,
+fast,chicken_t13.jpg,,,1,0,,1.42,0 | A | 2
+fast,chicken_t14.jpg,,,1,0,,0.69,
+fast,chicken_t15.jpg,,,1,0,,1.15,D | wh
+fast,chicken_t16.jpg,,,1,0,,0.82,0
+fast,chicken_t17.jpg,,,1,0,,0.88,0
+fast,chicken_t18.jpg,,,1,0,,0.83,MH
+fast,spinach_web_1.jpg,,,1,0,,0.58,
+fast,spinach_web_2.jpg,,,1,0,,0.52,
+fast,spinach_web_3.jpg,,,1,0,,0.55,
+fast+rotate,soymilk_t01.jpg,2027-07-13,,0,270,,6.28,E通12 | Hanmi |  | Hanmi | 喜方 | 全|71 | inro | TH | U0 | J/ | 7A | /ro | 0110 | o | 豆
+fast+rotate,soymilk_t02.jpg,2027-07-13,2027-07-13,1,270,2027.07.130,14.37, | HH | u1 | GUF | Packaging by | SIG | 验型 | ：PP |  | FG.T | 型乒异 | 共方段 | 昂是昔吉区 | FG.T | 暑210 会员取 | dd：l品 | 福巴哈 | SIG | a by | o内证 | pose | 027.07.130 | 00:46 |  | FG.T | 隔号昔专 |  by | 0230 | SIG | A | 
+fast+rotate,soymilk_t03.jpg,2027-07-13,,0,270,,7.85,130 | C10:4G |  | 2022.07 |  | 17 | 卫星合 | 2 | 哈尼 | OUER | K | 创 |  | C |  | H7 | 2552 | CIC | 5 | RJ|U | 557 | .130
+fast+rotate,soymilk_t04.jpg,2027-07-13,,0,270,,6.31,.07.13D |  | E | 是尼 | 中 | 13D | 13D | 2 | TO | AR |  | 唱 | 品 | 13D
+fast+rotate,soymilk_t05.jpg,2027-07-13,2027-07-13,1,0,2027.07.13D,2.18,2027.07.13D | IT | 750司 | 0 | :7 | 司
+fast+rotate,soymilk_t06.jpg,,,1,270,,14.95,德 | 用 |  | 器 | 语 | 0 |  | 品器 | JUHOF | 器 | tu | 1n | 跟 | 2 | 1=g | Ino | 器 | JUuT|O | H | 40 | 冠装 | 方 | W | 能 |  | 器 | UF| | 10g | 品品 | U | · | 2 | Io | AC | 80004 | HACCP | 17卫·49 | UO | 8器：190mL·q0 
+fast+rotate,soymilk_t07.jpg,,,1,270,,7.96,大 | 限证品 | 2 | · | · | .190ml. | 155% |  | 从E羽心馆 | 唱里 | 跟司 | 器 | 0 | HO | 7 |  | 品 | 福 | 雷告 | ACC | 器片浴 | 5
+fast+rotate,soymilk_t08.jpg,,,1,270,,9.39,影 | 190mL | · | 吉 | 1 | %59 | 190mL |  |  | HE | 1 | R | 乐 | -Lu100:190m | 1% |  |  | 9 | HACCP | ACCP |  | 器17卫2合 | 7% | 0.5% | of
+fast+rotate,soymilk_t09.jpg,,,1,270,,6.82,783980 | 80612420 | se | 806124 | asi | 783980 | 9 | 2 | 783980 |  | asi |  |  | ise | 83680
+fast+rotate,soymilk_t10.jpg,,,1,270,,10.78,S | 783980 | rialotrlaia | 号 | 立局员 | I2 |  | Yilolio | 783980 | YViolohlio | CH | FSC | 至o | g | ulo | 2 | 66 | 783380 | as | 783980 | 39 | SIG | alohrlaia |  | a | 23 | 公 | g | 0 | 想 | W
+fast+rotate,soymilk_t11.jpg,,,1,270,,4.25,6 | 1 | 86 | 3 | N | 网
+fast+rotate,soymilk_t12.jpg,,,1,270,,7.23,83980 | ET |  | 7 | 仓 | A | N | 242 | 833980 |  | TT | 能 | 83980 | 福 | A | Ar料 | 7F
+fast+rotate,soymilk_t13.jpg,,,1,270,,3.86, | OW | 0 | 2 | S
+fast+rotate,soymilk_t14.jpg,,,1,270,,3.17,0白1 | 100
+fast+rotate,soymilk_t15.jpg,,,1,270,,4.28,SIG | asi | SIG | 器 | 器 | 1I0
+fast+rotate,hongsam_t01.jpg,,,1,270,,7.66,市密 | 0  | 正书上 | a |  | 5AN | 青 | 品 |  | 喜0 | 2 | DA |  |  | 干市 | Q | 美 | 0
+fast+rotate,hongsam_t02.jpg,,,1,270,,2.77,
+fast+rotate,hongsam_t03.jpg,,,1,270,,3.37,S | 二 | 5
+fast+rotate,hongsam_t04.jpg,2026-11-25,2026-11-25,1,270,：2026.11.25,3.82,中IieE | 证 | F | ：2026.11.25
+fast+rotate,hongsam_t05.jpg,,,1,270,,3.94,喜型 | Hin | 意区 | 意念区 | 喜生型
+fast+rotate,hongsam_t06.jpg,,,1,270,,3.18,0 | C | O
+fast+rotate,soymilk_t16.jpg,2027-07-13,2027-07-13,1,0,2027.07.13D,2.1, | 三人豆 | 灯 |  | 00:46 | 2027.07.13D
+fast+rotate,hongsam_t07.jpg,,,1,270,,5.1,Hle | SAES | 0 | 州 |  |  | J | 图 | 公
+fast+rotate,hongsam_t08.jpg,2026-11-25,2026-11-25,1,180,：2026.11.25,1.76,全a贝312n 25n | ：2026.11.25
+fast+rotate,hongsam_t09.jpg,,,1,270,,3.55,X | 61 | 明 | H
+fast+rotate,hongsam_t10.jpg,,,1,270,,3.1,T | D | 0
+fast+rotate,hongsam_t11.jpg,,,1,270,,7.78,天印可叫音 | 6 | 叶可舌 |  | 店 |  | 同 | 天音 | 89 | 花号 | 华华 |  | 叶可 舌 | 天印可音 | 叶可 | A | 2 |  | 不品音 | 台张
+fast+rotate,hongsam_t12.jpg,,,1,270,,4.05,35 | 诊 | 199915 | 14895095 | 5 | X
+fast+rotate,hongsam_t13.jpg,,,1,270,,3.5,一 | 8
+fast+rotate,hongsam_t14.jpg,,,1,270,,2.77,
+fast+rotate,hongsam_t15.jpg,,,1,270,,2.89,I
+fast+rotate,porkneck_t01.jpg,,,1,270,,3.62,0 | 2 | 11 | 20
+fast+rotate,porkneck_t02.jpg,,,1,270,,4.71,2 | 2 |  | 0 | 2 | PADA | 福
+fast+rotate,porkneck_t03.jpg,,,1,270,,4.44,中 | 5 | 0 | 1 | 1 | 0 | OOMRE
+fast+rotate,porkneck_t04.jpg,,,1,270,,3.48,K | 中 | N
+fast+rotate,porkneck_t05.jpg,,,1,270,,3.0,MYI
+fast+rotate,porkneck_t06.jpg,,,1,270,,3.1,2 | 3
+fast+rotate,porkneck_t07.jpg,,,1,270,,2.75,
+fast+rotate,porkneck_t08.jpg,,,1,270,,3.28,e | OBE
+fast+rotate,porkneck_t09.jpg,,,1,270,,3.09,1nS | 福
+fast+rotate,porkneck_t10.jpg,,,1,270,,2.66,
+fast+rotate,porkneck_t11.jpg,,,1,270,,3.04,4 | 多
+fast+rotate,porkneck_t12.jpg,,,1,270,,4.07,LIN | SR | 酒 |  | 福 | V
+fast+rotate,porkneck_t13.jpg,,,1,270,,3.29,4 | 
+fast+rotate,porkneck_t14.jpg,,,1,270,,2.7,
+fast+rotate,porkneck_t15.jpg,,,1,270,,3.66,彩 | 路 | K | 5
+fast+rotate,porkneck_t16.jpg,,,1,270,,2.69,
+fast+rotate,porkneck_t17.jpg,,,1,270,,2.73,
+fast+rotate,sweetpotato_t01.jpg,,,1,270,,2.87,小
+fast+rotate,sweetpotato_t02.jpg,,,1,270,,3.53,S | 01 | 小
+fast+rotate,sweetpotato_t03.jpg,,,1,270,,3.01,C
+fast+rotate,sweetpotato_t04.jpg,,,1,270,,2.7,
+fast+rotate,sweetpotato_t05.jpg,,,1,270,,3.4,N | 2 | A
+fast+rotate,sweetpotato_t06.jpg,,,1,270,,2.71,
+fast+rotate,sweetpotato_t07.jpg,,,1,270,,2.66,
+fast+rotate,sweetpotato_t08.jpg,,,1,270,,2.86,三
+fast+rotate,sweetpotato_t09.jpg,,,1,270,,2.69,
+fast+rotate,sweetpotato_t10.jpg,,,1,270,,2.95, | N
+fast+rotate,sweetpotato_t11.jpg,,,1,270,,2.74,
+fast+rotate,sweetpotato_t12.jpg,,,1,270,,2.6,
+fast+rotate,sweetpotato_t13.jpg,,,1,270,,2.85,2
+fast+rotate,sweetpotato_t14.jpg,,,1,270,,2.71,
+fast+rotate,sweetpotato_t15.jpg,,,1,270,,3.39,N | 2 | 1
+fast+rotate,sweetpotato_t16.jpg,,,1,270,,2.92,
+fast+rotate,sweetpotato_t17.jpg,,,1,270,,2.99,
+fast+rotate,milk_t01.jpg,,,1,270,,10.42,O |  | 0G | a | O |  |  |  |  |  |  |  | 1 | mS |  | 0 | T2 |  |  | F |  | O | O | O | B |  |  | Telac |  |  |  | 
+fast+rotate,milk_t02.jpg,,,1,270,,3.36,西 | M | 图 | 国
+fast+rotate,milk_t03.jpg,,,1,270,,4.47,图 | S | M | DA | 图 | 7 | 国
+fast+rotate,milk_t04.jpg,,,1,270,,3.86,园 | 照 | DA | 图 | 医
+fast+rotate,milk_t05.jpg,,,1,270,,5.31,R | 医 | 2 | 黑 | 图 |  | 图 | O | 2 | F0 | 区
+fast+rotate,milk_t06.jpg,,,1,270,,4.65,A | 园 | M | 图 | 图 | A | 50 | 区
+fast+rotate,milk_t07.jpg,,,1,270,,4.62,R | 园 | 照 | 8 | 图 | O | FO | 国
+fast+rotate,milk_t08.jpg,,,1,270,,4.07,医 | 1 | M | 图 | J | 國
+fast+rotate,milk_t09.jpg,,,1,270,,5.01,2 | SES | 0 |  | 1 | D | 2 | 自 | 1
+fast+rotate,milk_t10.jpg,,,1,270,,3.07,0 | a
+fast+rotate,milk_t11.jpg,,,1,270,,12.57,"98,V90 | 智U口 | 100%(至今刀圣1品，42今卷1通A) | (( |  |  | N |  | Sisiheo |  | 高IG | W | Ehroxta | GR1多R0R | 扫退立膜 | 多丽记酒标名1098号5 | 1OE &A 富记 更品 |  | B程 际ZA 富记 更品 | 多丽记酒医名 | 市唱3立膜 | ( | 4 | 9880,9服 | 95 | 口 |  |"
+fast+rotate,milk_t12.jpg,,,1,270,,3.62,601 | 2 | 
+fast+rotate,milk_t13.jpg,,,1,270,,3.44,1 | i | 0
+fast+rotate,milk_t14.jpg,,,1,270,,2.65,
+fast+rotate,milk_t15.jpg,,,1,270,,6.24,1 | 2 | 100 | 家 | 家 |  | 福 | A | AR | 0 | 10 | W | 鑫 | 1
+fast+rotate,milk_t16.jpg,,,1,270,,10.7, | 1A | V | 刘刘空全 | 163 | 本 | 全 | 1A52 |  1%1.8L(720kcal) | 1A号3 | 专EY | 7 | 2号1 | +WIVily |  | VIYPIY-PSH | %00) | RIYI | 早   a | 2号1 | VI+FIY-PSI | 景收县易卡 | 品D | MA3 | +Wivin | ÷巴 |  | 全 | 1A62 |  | 1
+fast+rotate,milk_t17.jpg,,,1,270,,11.61,9 | a | S | 0 | O | 2 | 1 | of |  | 古品正百 | V | X | 71 | 19722002 | U | 47 | 7 | 20 | N | e | 我 | 22 | 17192 | 阿057 | L | 百品正 | 空 | 胎 | (F5):4715 | ():2 | T | 立
+fast+rotate,milk_t18.jpg,,,1,270,,3.36,2 |  | 6
+fast+rotate,milk_t19.jpg,,,1,270,,2.84,2
+fast+rotate,milk_t20.jpg,,,1,270,,4.26,m | D! | in | AH | 区 | l | 业
+fast+rotate,chicken_t02.jpg,,,1,270,,4.07,A | 新 |  | We | M | W | 100
+fast+rotate,chicken_t03.jpg,,,1,270,,5.16,ses | O | C | 安 | 山 | s | 安AR |  | CA
+fast+rotate,chicken_t04.jpg,,,1,270,,3.72,KC | A | N |  | 山
+fast+rotate,chicken_t05.jpg,,,1,270,,5.88, | 暑收强房 | (  |  | U国刚音 | 0 | (  |  | 4 | 暑收强员 | 刘音 | 100 sf128 keal | 
+fast+rotate,chicken_t06.jpg,,,1,270,,4.43,100g(25 ca) |  | sauce | 100 g(125 kcal) | sauce | Chicke | sauce | che
+fast+rotate,chicken_t07.jpg,,,1,270,,2.7,
+fast+rotate,chicken_t08.jpg,,,1,270,,4.25,sauce | sauce | ahrban bren | sauce | H | SP | auce
+fast+rotate,chicken_t09.jpg,,,1,270,,3.83,向场 | 吕礼妈 | 治旧亮暑关 |  | 570
+fast+rotate,chicken_t10.jpg,,,1,270,,4.84,治旧灵关品私号 | 同 |  |   | 治旧灵景关吕化号 | 金金 |  |  | 针合
+fast+rotate,chicken_t11.jpg,,,1,270,,4.13, | O | 2188 | 0K | 0 | 0
+fast+rotate,chicken_t12.jpg,,,1,270,,2.9,
+fast+rotate,chicken_t13.jpg,,,1,270,,3.52,0 | A | 2 | 0
+fast+rotate,chicken_t14.jpg,,,1,270,,2.8,1
+fast+rotate,chicken_t15.jpg,,,1,270,,3.9,D | wh | L | e | C | M
+fast+rotate,chicken_t16.jpg,,,1,270,,3.58,0 | 0 | 0 | 2
+fast+rotate,chicken_t17.jpg,,,1,270,,3.02,0 | 0
+fast+rotate,chicken_t18.jpg,,,1,270,,4.27,MH | 2价 | 合作品 | 2检 | 1 |   | 
+fast+rotate,spinach_web_1.jpg,,,1,270,,3.69,2 | 9 | S | C | D | 
+fast+rotate,spinach_web_2.jpg,,,1,270,,1.95,
+fast+rotate,spinach_web_3.jpg,,,1,270,,2.83,C | A
+strict,soymilk_t01.jpg,2027-07-13,,0,0,,15.92,13IZR |  | W | Hanmi | UO
+strict,soymilk_t02.jpg,2027-07-13,,0,0,,12.8,"027""202707 | OLR |  | 한대 | Packaging by | SIG | 일교백 | 대:PP | 재활용 어리움 | FG.T | 전두유·공법 | 전두유"
+strict,soymilk_t03.jpg,2027-07-13,,0,0,,12.12,듣업 | 소비기한A | 2123.153.130 | yann | 4 | 2 | 고칼술
+strict,soymilk_t04.jpg,2027-07-13,,0,0,,11.67,20ktd0P.130 | Hanm | 검은콩 | 곡
+strict,soymilk_t05.jpg,2027-07-13,2027-07-13,1,0,2027.07.13D,27.58, | unab | 2027.07.13D | 불 | HACCP | 17곡고칼습·식품의유 | 군제품 | 대용랑:190m | ·윈재로명 | 형라무 | 65 | 이상 대두 | 17곡 | 현미
+strict,soymilk_t06.jpg,,,1,0,,28.27, |  | 퀀덴 | 떠이 | 이 | Gr |  | 전두야 | 거 | 하 | 
+strict,soymilk_t07.jpg,,,1,0,,27.03, | EB로R로Z아 | 받박연림 | R을 | 암B-106122 | tol-n | ㅎa  | EOKO-B | PE
+strict,soymilk_t08.jpg,,,1,0,,26.94,OU | 83 | B |  | a | 무르고 |  | pr | OD | 
+strict,soymilk_t09.jpg,,,1,0,,25.8,8688 | ise
+strict,soymilk_t10.jpg,,,1,0,,26.67,086E8L | 0 | 자aO | R | MB | Rankml | SC S |  | IANE
+strict,soymilk_t11.jpg,,,1,0,,23.33,980
+strict,soymilk_t12.jpg,,,1,0,,24.98,R | N | 루
+strict,soymilk_t13.jpg,,,1,0,,24.94,
+strict,soymilk_t14.jpg,,,1,0,,22.35, |  | D
+strict,soymilk_t15.jpg,,,1,0,,16.55, | 한미서이언스 | 915 | 68 | 086 8 | iSe
+strict,hongsam_t01.jpg,,,1,0,,15.82,rle el sbat ae lte | aleno으e
+strict,hongsam_t02.jpg,,,1,0,,19.66,
+strict,hongsam_t03.jpg,,,1,0,,23.62,
+strict,hongsam_t04.jpg,2026-11-25,,0,0,,22.63, SE 1950
+strict,hongsam_t05.jpg,,,1,0,,16.35,woer | K2 | W2 | PDm
+strict,hongsam_t06.jpg,,,1,0,,15.02,
+strict,soymilk_t16.jpg,2027-07-13,2027-07-13,1,0,2027.07.130,15.34,흔들어 | 드세요 | 까지 | 소비기한 | 00 | 2027.07.130
+strict,hongsam_t07.jpg,,,1,0,,23.58,
+strict,hongsam_t08.jpg,2026-11-25,,0,0,,22.53,yo22시R
+strict,hongsam_t09.jpg,,,1,0,,21.11, d 1 ME00
+strict,hongsam_t10.jpg,,,1,0,,12.44,
+strict,hongsam_t11.jpg,,,1,0,,18.66,곳데이엄플 | 우리 에세 재란 | 변근 홍삼을담은 | 3욱
+strict,hongsam_t12.jpg,,,1,0,,21.73, | 
+strict,hongsam_t13.jpg,,,1,0,,23.5,
+strict,hongsam_t14.jpg,,,1,0,,20.92,
+strict,hongsam_t15.jpg,,,1,0,,14.77,
+strict,porkneck_t01.jpg,,,1,0,,15.07,
+strict,porkneck_t02.jpg,,,1,0,,19.66,1A
+strict,porkneck_t03.jpg,,,1,0,,23.84,
+strict,porkneck_t04.jpg,,,1,0,,21.24,
+strict,porkneck_t05.jpg,,,1,0,,16.56,
+strict,porkneck_t06.jpg,,,1,0,,14.83,2
+strict,porkneck_t07.jpg,,,1,0,,20.51,
+strict,porkneck_t08.jpg,,,1,0,,18.06,
+strict,porkneck_t09.jpg,,,1,0,,13.58,R5O | 2 | AK
+strict,porkneck_t10.jpg,,,1,0,,17.29, | 
+strict,porkneck_t11.jpg,,,1,0,,20.93,
+strict,porkneck_t12.jpg,,,1,0,,13.14,
+strict,porkneck_t13.jpg,,,1,0,,15.98,
+strict,porkneck_t14.jpg,,,1,0,,20.22,APR
+strict,porkneck_t15.jpg,,,1,0,,14.94, | 
+strict,porkneck_t16.jpg,,,1,0,,16.38,
+strict,porkneck_t17.jpg,,,1,0,,19.69,
+strict,sweetpotato_t01.jpg,,,1,0,,14.97,15
+strict,sweetpotato_t02.jpg,,,1,0,,14.85,
+strict,sweetpotato_t03.jpg,,,1,0,,18.6,
+strict,sweetpotato_t04.jpg,,,1,0,,16.01,
+strict,sweetpotato_t05.jpg,,,1,0,,15.48,
+strict,sweetpotato_t06.jpg,,,1,0,,19.18,
+strict,sweetpotato_t07.jpg,,,1,0,,15.01,
+strict,sweetpotato_t08.jpg,,,1,0,,15.2,
+strict,sweetpotato_t09.jpg,,,1,0,,18.26,
+strict,sweetpotato_t10.jpg,,,1,0,,17.67,
+strict,sweetpotato_t11.jpg,,,1,0,,16.43,
+strict,sweetpotato_t12.jpg,,,1,0,,14.75,A | U
+strict,sweetpotato_t13.jpg,,,1,0,,19.57,
+strict,sweetpotato_t14.jpg,,,1,0,,12.09,
+strict,sweetpotato_t15.jpg,,,1,0,,13.96,
+strict,sweetpotato_t16.jpg,,,1,0,,18.33,
+strict,sweetpotato_t17.jpg,,,1,0,,13.36,
+strict,milk_t01.jpg,,,1,0,,15.11,R
+strict,milk_t02.jpg,,,1,0,,20.25,
+strict,milk_t03.jpg,,,1,0,,22.58,
+strict,milk_t04.jpg,,,1,0,,22.84,2 | -
+strict,milk_t05.jpg,,,1,0,,14.76,와 | 
+strict,milk_t06.jpg,,,1,0,,16.3,
+strict,milk_t07.jpg,,,1,0,,19.57,
+strict,milk_t08.jpg,,,1,0,,23.94, |  | >
+strict,milk_t09.jpg,,,1,0,,21.19,3 | S42
+strict,milk_t10.jpg,,,1,0,,13.6,
+strict,milk_t11.jpg,,,1,0,,20.23,[Unael | U | O주A | 장재질(내면) | 리(2기.4) | 기일까지 |  | 8I5 | 3 |  |  | 3312
+strict,milk_t12.jpg,,,1,0,,20.6,
+strict,milk_t13.jpg,,,1,0,,13.9,
+strict,milk_t14.jpg,,,1,0,,18.59,
+strict,milk_t15.jpg,,,1,0,,22.4, | RN
+strict,milk_t16.jpg,,,1,0,,15.4,9면 | M1A | 1woo | 제세포수 | 1등급 | 제 | 지방 1%우유1.8L(720kcal) | 세균수 | 1A등급 | #냉장제품
+strict,milk_t17.jpg,,,1,0,,16.97,(고면호
+strict,milk_t18.jpg,,,1,0,,21.44,
+strict,milk_t19.jpg,,,1,0,,12.36,-
+strict,milk_t20.jpg,,,1,0,,18.19,[Ue] | 
+strict,chicken_t02.jpg,,,1,0,,18.91,MR
+strict,chicken_t03.jpg,,,1,0,,14.23,RR | O
+strict,chicken_t04.jpg,,,1,0,,15.61,
+strict,chicken_t05.jpg,,,1,0,,20.33,
+strict,chicken_t06.jpg,,,1,0,,22.53,Gent SZU)8 101 | 1O4P14D | aonme
+strict,chicken_t07.jpg,,,1,0,,15.67,
+strict,chicken_t08.jpg,,,1,0,,13.36,A | asmws
+strict,chicken_t09.jpg,,,1,0,,19.27,'5
+strict,chicken_t10.jpg,,,1,0,,22.37, | 눈눈]
+strict,chicken_t11.jpg,,,1,0,,14.85,0 | ERB
+strict,chicken_t12.jpg,,,1,0,,14.82,H
+strict,chicken_t13.jpg,,,1,0,,21.47,
+strict,chicken_t14.jpg,,,1,0,,23.68,
+strict,chicken_t15.jpg,,,1,0,,13.14,
+strict,chicken_t16.jpg,,,1,0,,15.05,
+strict,chicken_t17.jpg,,,1,0,,24.95,K
+strict,chicken_t18.jpg,,,1,0,,18.81,제매B | 17m시
+strict,spinach_web_1.jpg,,,1,0,,18.68,
+strict,spinach_web_2.jpg,,,1,0,,12.27, | S
+strict,spinach_web_3.jpg,,,1,0,,16.42,
+v6+rotate,soymilk_t01.jpg,2027-07-13,,0,270,,70.47,PICIA | 改味d | t | Hanmi | U0 | 2 | 4 | r1O | Hanmi | 1d | 喜 |  | 07.130 | 喜 | cA | Hanmi | OJHIN | MJ/UOF | OクA | 刘 | o | りY | /T-/0 | HO | Hanm | 百 |  |  | 
+v6+rotate,soymilk_t02.jpg,2027-07-13,2027-07-13,1,180,2027.07.130,25.92,0220 | A | SE | 5 | Packaging by | SIG | 验印型 | :PP |  | FG.T | 型乒异岩 | 烈 | 百级昌员 | 告方段 | 晶是昔吉区 | 暑2lo 会员收 | dd:lb | 福巴哈 | SIG | a by |  | 1nrlot | 咖 | 2027.07.130
+v6+rotate,soymilk_t03.jpg,2027-07-13,2027-07-13,1,0,2027.07.130,13.16, |  | 2027.07.130 | Hann | 5os | WHO | 卫合
+v6+rotate,soymilk_t04.jpg,2027-07-13,2027-07-13,1,0,2027.07.13D,12.1,2027.07.13D | Hanm |  | 17号
+v6+rotate,soymilk_t05.jpg,2027-07-13,2027-07-13,1,0,2027.07.13D,14.56,富 | 器 | 2027.07.13D | IT | HACCP | 17号卫合·409 | 调 | 190mL |  | 70司K言T | 65 | . | 17号 | 和
+v6+rotate,soymilk_t06.jpg,,,1,270,,59.28, | 型 | 器 | H | OIJ |  | 照 | RJUHOF | 否 | u | 1s | 鼠证器 | 夏 | 川u|0E | H0 | 器 | 造品 | 司 | % | 迎 | Bu02 | 887 | 彩花 | 器 |  |  |  | RJ|UuT|0 | 1ng | Ing | A | Hanm | Hanmi | HACCP | tu | JUHOE | Iat |  | 177
+v6+rotate,soymilk_t07.jpg,,,1,270,,53.32,鼠证器 | 025% o130 | 能活优特化 | 910% | 品·7061:20 | 30 -1 19 | · | EOKOJHT | AC | 49 | HACCP | ：10(.8190ml·802 | 6%% | 器品器 | 717马0.5% | 弧酷乳乳光器唱器 | 吊旺昌唱花等科 | 025%3 | 55%845% |   | 人 开间 | :199 | 17 ： | 106 | 器
+v6+rotate,soymilk_t08.jpg,,,1,270,,49.54,OHU | 30 |  | 5.0 | 0 | 藏 | 17% | DI | oll | 凯 | O | 2合 | 7% |  |  | ·06100 |  | ACP | HACCF |  | CH |  | 90mL | OR | 172合·4200
+v6+rotate,soymilk_t09.jpg,,,1,270,,46.38,838 | ise | 80612420560 | asi | LNTWER | 783980 | 783980 | 10 | asi | NTFER | 806124 | asi | an | 783980 | 0
+v6+rotate,soymilk_t10.jpg,,,1,270,,49.3,783980 | JG | rialohrlaia | 号 | 很曼带1o1981Y | 尼昌102号： | FSC lg | 力文百弱 | 尼 | DY |  | ： | FSC |  |  | Vilolio | 9s5 | 783980 | Vilohloio |  | SIG | 783980 | ise | asi | 783980 | SIG | 69 | FSC solg | 号文号
+v6+rotate,soymilk_t11.jpg,,,1,270,,42.43,980 |  | 3980
+v6+rotate,soymilk_t12.jpg,,,1,270,,47.57,2 | M | ET | 号 | 17片 | 卫 | 科 | 2 | 22君 | 80612420566 | 883980 | 卫い | U | TH | 能 | 5 | 83980 | 谐 | 器 | TA | OUAr雪 | 7T
+v6+rotate,soymilk_t13.jpg,,,1,270,,44.44,吧 | 配器 | 1 | 品TR品
+v6+rotate,soymilk_t14.jpg,,,1,270,,45.09,引己 | 7 | 吸 | 图器12 | O | 信 | 器12 | 卫合 |  | 号尼 | 品
+v6+rotate,soymilk_t15.jpg,,,1,270,,47.15, | Tloi | SIG | 39 | 783 980 | ise | aSi | 783 980 | 39 |  | SIG | Blolaa | nemm | SIG | 783 980 | 30 | C |  | ise | 783 980 | 56 | SIG | H
+v6+rotate,hongsam_t01.jpg,,,1,270,,48.13,0   | 日 |  | 和子干安制 |  |  |  | 中子干开市 | IH |  | 10 | 
+v6+rotate,hongsam_t02.jpg,,,1,270,,43.6,
+v6+rotate,hongsam_t03.jpg,,,1,270,,43.67,志
+v6+rotate,hongsam_t04.jpg,2026-11-25,2026-11-25,1,180,：2026.11.25,21.63,全Y： | ：2026.11.25
+v6+rotate,hongsam_t05.jpg,,,1,270,,45.96,喜告型 | 我 | 2 | 0 | uJA | 意正 | Wit | 喜公 | 君乐
+v6+rotate,hongsam_t06.jpg,,,1,270,,43.8,0
+v6+rotate,soymilk_t16.jpg,2027-07-13,2027-07-13,1,0,2027.07.13D,12.3, | 三人豆 | 灯 |  | 00:46 | 2027.07.13D
+v6+rotate,hongsam_t07.jpg,,,1,270,,39.61,FEEGEU请I中所 | 到
+v6+rotate,hongsam_t08.jpg,2026-11-25,2026-11-25,1,180,：2026.11.25,21.34,全a2：02  25n | ：2026.11.25
+v6+rotate,hongsam_t09.jpg,,,1,270,,43.5, |  | 1w
+v6+rotate,hongsam_t10.jpg,,,1,270,,42.8,J
+v6+rotate,hongsam_t11.jpg,,,1,270,,48.86,天印可音 | 叶可 舌  |  | 花号 | o | 同工 | 品 | 8号 | 叶可 如舌 文 |  | 印可 | 9 | 6 | 同 |  | 百张
+v6+rotate,hongsam_t12.jpg,,,1,270,,43.27, | 1E | 味
+v6+rotate,hongsam_t13.jpg,,,1,270,,43.31,2 | 二 | K | 1
+v6+rotate,hongsam_t14.jpg,,,1,270,,45.33,L |  | 1
+v6+rotate,hongsam_t15.jpg,,,1,270,,45.56,0 | 4 | 行
+v6+rotate,porkneck_t01.jpg,,,1,270,,43.29,福 |  | 福
+v6+rotate,porkneck_t02.jpg,,,1,270,,43.64,PABB | CKE
+v6+rotate,porkneck_t03.jpg,,,1,270,,43.25,宝 | NUUR
+v6+rotate,porkneck_t04.jpg,,,1,270,,44.38,福
+v6+rotate,porkneck_t05.jpg,,,1,270,,44.8,家 | 山
+v6+rotate,porkneck_t06.jpg,,,1,270,,42.73,
+v6+rotate,porkneck_t07.jpg,,,1,270,,43.06,
+v6+rotate,porkneck_t08.jpg,,,1,270,,43.42,CPENY
+v6+rotate,porkneck_t09.jpg,,,1,270,,44.14,1 | 酒 | AN | OR | 0 | 福
+v6+rotate,porkneck_t10.jpg,,,1,270,,44.53,On | 标 | PIR | PIR
+v6+rotate,porkneck_t11.jpg,,,1,270,,44.0,福 | SinR | 0 | 福
+v6+rotate,porkneck_t12.jpg,,,1,270,,44.67, | Cacko | 福 | 福
+v6+rotate,porkneck_t13.jpg,,,1,270,,45.0, |  |  | 福 | 福
+v6+rotate,porkneck_t14.jpg,,,1,270,,44.02,5 | W | 2 | 福
+v6+rotate,porkneck_t15.jpg,,,1,270,,46.79,福 | 福 | 福 | 动 | 0 | 6 | S
+v6+rotate,porkneck_t16.jpg,,,1,270,,44.15,
+v6+rotate,porkneck_t17.jpg,,,1,270,,43.51,0 | A | 6
+v6+rotate,sweetpotato_t01.jpg,,,1,270,,41.2,75
+v6+rotate,sweetpotato_t02.jpg,,,1,270,,42.65,
+v6+rotate,sweetpotato_t03.jpg,,,1,270,,44.21,
+v6+rotate,sweetpotato_t04.jpg,,,1,270,,42.24,20 | X | 2
+v6+rotate,sweetpotato_t05.jpg,,,1,270,,42.85,9
+v6+rotate,sweetpotato_t06.jpg,,,1,270,,42.74,
+v6+rotate,sweetpotato_t07.jpg,,,1,270,,44.1,
+v6+rotate,sweetpotato_t08.jpg,,,1,270,,43.94,
+v6+rotate,sweetpotato_t09.jpg,,,1,270,,42.26,2
+v6+rotate,sweetpotato_t10.jpg,,,1,270,,42.18,V
+v6+rotate,sweetpotato_t11.jpg,,,1,270,,45.86,A | aa | C | 1 | 040
+v6+rotate,sweetpotato_t12.jpg,,,1,270,,43.65,POA | 
+v6+rotate,sweetpotato_t13.jpg,,,1,270,,42.3,1
+v6+rotate,sweetpotato_t14.jpg,,,1,270,,41.55,
+v6+rotate,sweetpotato_t15.jpg,,,1,270,,43.62,房
+v6+rotate,sweetpotato_t16.jpg,,,1,270,,42.86,
+v6+rotate,sweetpotato_t17.jpg,,,1,270,,42.32,
+v6+rotate,milk_t01.jpg,,,1,270,,43.16,O | a | Q | O
+v6+rotate,milk_t02.jpg,,,1,270,,42.31,西 | C | 1
+v6+rotate,milk_t03.jpg,,,1,270,,43.46,园 | C | 区
+v6+rotate,milk_t04.jpg,,,1,270,,44.14,园 | 2 | 3 | 图 | O | 区
+v6+rotate,milk_t05.jpg,,,1,270,,44.59,R | 13:81133 02 77 | 21 | D | 公 | 27 118 | 13:81193 02 27 | 50 | 区
+v6+rotate,milk_t06.jpg,,,1,270,,43.89,
+v6+rotate,milk_t07.jpg,,,1,270,,41.63,图 | X |  | 区
+v6+rotate,milk_t08.jpg,,,1,270,,43.67,A | 园 | 7 | A | V | 图 | 6 | 国
+v6+rotate,milk_t09.jpg,,,1,270,,38.89,品 | 
+v6+rotate,milk_t10.jpg,,,1,270,,37.62,二 | D
+v6+rotate,milk_t11.jpg,,,1,270,,48.0,928.V94180 | 25 800 2服 | UC | ( | (21%8 | KC | LC | 8(F | 3): | 0262002296 | AR | 3312 | 1160022296 | 18281 |  | Frie百&居Y | C旺型咖器药品 | 女仙居lc旺曼 |  | 扫力退张立胆 | 多丽2酒标名1008号活 | 1OE&AB记更品8店 | R | G21802 | JO
+v6+rotate,milk_t12.jpg,,,1,270,,38.53, | RSMUHA
+v6+rotate,milk_t13.jpg,,,1,270,,38.62,A
+v6+rotate,milk_t14.jpg,,,1,270,,37.59,10 | K
+v6+rotate,milk_t15.jpg,,,1,270,,41.64,www | GARN | X | 中0 | 中0 |  | 9 | 1 | MYD | GARN | V | 200 |  | 福 | 安迎 | 
+v6+rotate,milk_t16.jpg,,,1,270,,47.88,品 | AR+1A | 100% | 刘刘空全 | 163 | XHAI是李 | 1%1.8L(720kcal) | 全 | 1A52 |  | 县收及员卡 | 品 | MA3 | 专EY |  2 | Wivin | 2号1 |  | VI+PIN | %00) | 早 ca | 2号1 | 专五Y | VI+EY-PSI+WIYR | %00) | 曼收昆易卡 | DD | 2A3 | ÷EY
+v6+rotate,milk_t17.jpg,,,1,270,,41.42, | 19235 | 209 | 全(35一 | 18 | R | 2 | F4):20050575003288 | ):19760262002296 | (F5):2020026719235 | 2 | W色E62 | 833372-T
+v6+rotate,milk_t18.jpg,,,1,270,,37.79, | 下 | A
+v6+rotate,milk_t19.jpg,,,1,270,,37.75,V | A
+v6+rotate,milk_t20.jpg,,,1,270,,39.33,250 | Pwile | saI | 1 | sAH | 星 | 欢迎吉 | 1 | 
+v6+rotate,chicken_t02.jpg,,,1,270,,38.47,新 | wa | sCuce |  | sones
+v6+rotate,chicken_t03.jpg,,,1,270,,39.94, | CO | Clao | 安AR | sauce | ss | 奖AR | F | anes
+v6+rotate,chicken_t04.jpg,,,1,270,,40.1,1
+v6+rotate,chicken_t05.jpg,,,1,270,,43.48,100 er128 kcal)   | B4 | 暑收强局
+v6+rotate,chicken_t06.jpg,,,1,270,,46.26,0025 ca) | hhe | sauce | sauce | Chick | 100 g(125 kcal) | sauce | Chicke | sauce | hhe
+v6+rotate,chicken_t07.jpg,,,1,270,,43.45,
+v6+rotate,chicken_t08.jpg,,,1,270,,45.0,rnny Hay4 | sauce | sauce | 1 | Chichen brens | sauce | sauce | 
+v6+rotate,chicken_t09.jpg,,,1,270,,44.44,os | 伯旧花善品品化妈 | LAA | 向7店 | C
+v6+rotate,chicken_t10.jpg,,,1,270,,43.78,名旧灵暑关品私号 | 同 |  |   | 名旧灵景关易品号 | 行 |  | 
+v6+rotate,chicken_t11.jpg,,,1,270,,42.43,0 | 88 | 0 | 2183 | 5
+v6+rotate,chicken_t12.jpg,,,1,270,,42.46,
+v6+rotate,chicken_t13.jpg,,,1,270,,44.61,公 | 2 | 6
+v6+rotate,chicken_t14.jpg,,,1,270,,43.7,6 | R
+v6+rotate,chicken_t15.jpg,,,1,270,,43.12,1 | M | 售码代 | 
+v6+rotate,chicken_t16.jpg,,,1,270,,41.54,主 | 2 | C
+v6+rotate,chicken_t17.jpg,,,1,270,,43.12,X
+v6+rotate,chicken_t18.jpg,,,1,270,,43.06, | 15291 | 合 | 2检肥 | 旧服合作 |   | N
+v6+rotate,spinach_web_1.jpg,,,1,270,,36.45, | 
+v6+rotate,spinach_web_2.jpg,,,1,270,,33.88,福 | 88863888 | 9888 | 0 | M | M
+v6+rotate,spinach_web_3.jpg,,,1,270,,36.47,O | 0

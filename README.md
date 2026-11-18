@@ -5,6 +5,15 @@
 - 문제 정의서: [`문제정의서.md`](문제정의서.md)
 - 흐름: **사진 → 품목 인식(기준 사진 벡터 검색, SigLIP 2) → 유통기한 읽기(PaddleOCR + 날짜 규칙) → 확인·수정 → 등록 → D-day 목록**
 
+## 바로 써 보기 (브라우저판, 설치 없음)
+
+**https://gkerala.github.io/4-main-quest-fridge-keeper/**
+
+- 모델이 방문자의 브라우저 안에서 돈다. 사진은 밖으로 나가지 않고, 목록은 그 브라우저(localStorage)에만 남는다. 처음 한 번 모델(약 110MB)을 내려받는다.
+- 사진이 없으면 화면의 시험 사진 3장(두유·우유·고구마)을 눌러 볼 수 있다.
+- 원본 PoC와 다른 점: 품목 인식은 같은 SigLIP 2를 8비트로 줄인 것, 유통기한은 PaddleOCR **PP-OCRv4 모바일**(원본은 PP-OCRv5 server + v6 읽기). 날짜 규칙은 `expiry.py`를 그대로 옮겼다(`node expiry_check.mjs`로 확인). 가벼운 모델이라 **정확도는 다시 재지 않았다.** 이 PC(Chrome)에서 시험 사진 3장: 두유 품목·날짜(2027-07-13) 맞음, 고구마 품목 맞음 + 기본 3일, 우유 품목 맞음(날짜가 안 보이는 사진이라 직접 입력). 날짜 읽기 약 10초.
+- 파일: `docs/`(페이지), `web_build.py`(기준 사진 축소본·시험 사진 만들기), `docs/vendor/paddleocr.bundle.js`(`@gutenye/ocr-browser` 1.4.9를 esbuild로 묶은 것).
+
 ## 실행 방법 (Windows, CPU)
 
 ```powershell

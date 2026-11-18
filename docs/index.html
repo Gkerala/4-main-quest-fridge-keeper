@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>냉장고 유통기한 (브라우저판)</title>
+<style>
+  :root { --bg:#f7f6f2; --card:#fff; --ink:#1f2328; --muted:#6a6f76; --line:#e3e1da; --accent:#2d4fd6; --warn:#c0601a; --bad:#b42318; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#16181c; --card:#1f2228; --ink:#e8e9eb; --muted:#9aa0a8; --line:#2e323a; --accent:#7f9bff; --warn:#f0a35e; --bad:#ff7b72; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 "Malgun Gothic", system-ui, sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:24px 16px 64px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 20px; font-size:.92rem; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
+  h2 { font-size:1.05rem; margin:0 0 12px; }
+  label { display:block; font-size:.9rem; color:var(--muted); margin:10px 0 4px; }
+  select, input[type=date] { width:100%; padding:8px; border:1px solid var(--line); border-radius:8px; background:var(--bg); color:var(--ink); font:inherit; }
+  button { padding:8px 14px; border:0; border-radius:8px; background:var(--accent); color:#fff; font:inherit; cursor:pointer; }
+  button.ghost { background:transparent; color:var(--ink); border:1px solid var(--line); }
+  button:disabled { opacity:.5; cursor:default; }
+  .samples { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+  .samples img { width:72px; height:72px; object-fit:cover; border-radius:8px; cursor:pointer; border:2px solid transparent; }
+  .samples img:hover { border-color:var(--accent); }
+  #preview { max-width:100%; max-height:320px; border-radius:8px; display:none; margin-top:12px; }
+  #status { color:var(--muted); font-size:.9rem; min-height:1.5em; margin-top:8px; }
+  #form { display:none; }
+  ul { list-style:none; padding:0; margin:0; }
+  li { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-top:1px solid var(--line); }
+  li:first-child { border-top:0; }
+  .soon { color:var(--warn); font-weight:bold; }
+  .over { color:var(--bad); font-weight:bold; }
+  .note { font-size:.85rem; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>내 냉장고 유통기한</h1>
+  <p class="sub">사진 한 장으로 품목과 유통기한을 채우는 PoC의 <b>브라우저판</b>입니다. 모델이 이 브라우저 안에서 돌아서 사진이 밖으로 나가지 않습니다. 처음 한 번은 모델(약 100MB)을 내려받습니다.</p>
+
+  <section>
+    <h2>1. 사진으로 등록</h2>
+    <input type="file" id="file" accept="image/*">
+    <div class="note">사진이 없으면 아래 시험 사진을 눌러 보세요.</div>
+    <div class="samples" id="samples"></div>
+    <img id="preview" alt="올린 사진">
+    <div id="status"></div>
+    <div id="form">
+      <label for="name">품목</label>
+      <select id="name"></select>
+      <label for="date">유통기한</label>
+      <input type="date" id="date">
+      <p><button id="add">등록</button></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. 목록 (남은 일수 순)</h2>
+    <ul id="list"></ul>
+    <p class="note" id="empty">아직 등록한 것이 없습니다. 목록은 이 브라우저에만 저장됩니다.</p>
+  </section>
+
+  <p class="note">품목 인식: SigLIP 2(<code>onnx-community/siglip2-base-patch16-224-ONNX</code>, 8비트)로 기준 사진과 가장 가까운 품목을 고릅니다. 유통기한: PaddleOCR PP-OCRv4 모바일 모델(<code>@gutenye/ocr-browser</code>) 글자 읽기 + 원본과 같은 날짜 규칙. 원본 PoC(PP-OCRv5 server + v6)보다 가벼운 모델이라 정확도는 다시 재야 합니다. 저장소: <a href="https://github.com/Gkerala/4-main-quest-fridge-keeper">4-main-quest-fridge-keeper</a></p>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

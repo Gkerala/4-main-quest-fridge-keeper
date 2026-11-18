@@ -1,5 +1,5 @@
-// 브라우저판: 사진 → 품목(SigLIP 2 기준 사진 벡터 검색) → 유통기한(Tesseract.js + expiry.js) → 확인 → localStorage 목록
-import { AutoProcessor, SiglipVisionModel, RawImage } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.1";
+// 브라우저판: 사진 → 품목(SigLIP 2 기준 사진 벡터 검색) → 유통기한(PaddleOCR + expiry.js) → 확인 → localStorage 목록
+import { AutoProcessor, SiglipVisionModel, RawImage, env as hfEnv } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.1";
 import Ocr, { env } from "./vendor/paddleocr.bundle.js"; // @gutenye/ocr-browser 1.4.9 묶음(PaddleOCR PP-OCRv4 + onnxruntime-web)
 import { findExpiry } from "./expiry.js";
 
@@ -17,6 +17,7 @@ $("name").innerHTML = items.map((i) => `<option>${i.name}</option>`).join("");
 
 // ---- 품목 인식 ----
 let modelP = null;
+hfEnv.backends.onnx.wasm.proxy = true; // SigLIP 계산도 별도 작업 공간에서
 const loadModel = () => (modelP ??= (async () => {
   const [proc, model] = await Promise.all([
     AutoProcessor.from_pretrained(MODEL),
@@ -48,6 +49,7 @@ async function recognize(img) {
 let ocrP = null;
 const loadOcr = () => (ocrP ??= (async () => {
   env.wasm.wasmPaths = "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.31.1/dist/";
+  env.wasm.proxy = true; // OCR 모델 계산을 별도 작업 공간(Web Worker)에서 돌려 화면이 덜 멈추게
   return Ocr.create({ models: {
     detectionPath: `${OCR_MODELS}ch_PP-OCRv4_det_infer.onnx`,
     recognitionPath: `${OCR_MODELS}ch_PP-OCRv4_rec_infer.onnx`,
@@ -90,6 +92,8 @@ async function readExpiry(bitmap) {
 function ymdNow() { const t = new Date(); return [t.getFullYear(), t.getMonth(), t.getDate()]; }
 const iso = (d) => d.toISOString().slice(0, 10);
 const addDays = (n) => iso(new Date(Date.UTC(...ymdNow()) + n * DAY));
+// 받침 유무로 조사 고르기: josa("고구마", "은", "는") → "고구마는"
+const josa = (w, a, b) => w + ((w.charCodeAt(w.length - 1) - 0xac00) % 28 ? a : b);
 const secSince = (t0) => ((performance.now() - t0) / 1000).toFixed(1);
 const el = (tag, cls, text) => Object.assign(document.createElement(tag), { className: cls || "", textContent: text ?? "" });
 
@@ -125,12 +129,12 @@ async function handle(blob) {
       date = d ? iso(d) : "";
       shown.push(["날짜 읽기", `${secSince(t0)}초`]);
       if (ev) shown.push(["읽은 글자", ev]);
-      msg = d ? `${name}, 유통기한 ${date}로 읽었습니다.` : `${name}로 보입니다. 날짜를 못 읽었으니 직접 넣어 주세요.`;
+      msg = d ? `${name}, 유통기한은 ${date}입니다.` : `${name} 같습니다. 날짜를 못 읽었으니 직접 넣어 주세요.`;
     } else {
       const it = byName[name];
       date = addDays(it.default_days);
       shown.push(["기본 보관", `${it.default_days}일`]);
-      msg = `${name}은(는) 날짜가 안 적혀 있어 ${it.storage} 기준 ${it.default_days}일로 채웠습니다.`;
+      msg = `${josa(name, "은", "는")} 날짜가 안 적혀 있어 ${it.storage} 기준 ${it.default_days}일로 채웠습니다.`;
     }
     $("date").value = date;
     facts(shown);
@@ -168,7 +172,7 @@ $("form").onsubmit = (e) => {
   e.preventDefault();
   save([...load(), { id: Date.now(), name: $("name").value, date: $("date").value }]);
   $("form").classList.remove("show");
-  status(`${$("name").value}을(를) 등록했습니다. 아래 목록을 보세요.`);
+  status(`${josa($("name").value, "을", "를")} 등록했습니다. 아래 목록을 보세요.`);
   render();
 };
 $("file").onchange = (e) => e.target.files[0] && handle(e.target.files[0]);
